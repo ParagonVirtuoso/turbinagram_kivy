@@ -1,0 +1,41 @@
+#encoding: -*- utf-8 -*-
+#:kivy 1.0
+<Logintela@FloatLayout>:
+    canvas.before: 
+        Color:
+            rgba:210,47,76,74
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    LogoMeioTurbinaGram:
+        source: 'recursos/LOGO_TURBINA_GRAMLicone.png'
+        size_hint_y: .14
+        pos_hint: {'center_x': .5, 'center_y': .66}
+    
+    ButTest:
+        on_release: app.root.current = 'loading'
+        #on_press: root.logar()
+        
+    #BotaoLoginInsta:
+        #size_hint: .70, .08
+        #Image:
+            #source: 'recursos/instagram-new.png'
+            #allow_stretch: True
+    #BotIm:
+       # size_hint: .70, .08
+    ActionBar:
+        pos_hint: {'top' : 1}
+        background_normal: ''
+        background_down: ''
+        background_color: 255,255,255,0.95
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                id:Backb
+                app_icon: 'back.png'
+                color: 0, 0, 0, 1
+                with_previous: False
+                on_release: app.root.current = 'menu'
+    LogoTopo:
+    DireitosLabel:

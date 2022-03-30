@@ -1,0 +1,40 @@
+#encoding: -*- utf-8 -*-
+#:kivy 1.0
+#:include widgets.kv
+#:import utils kivy.utils
+#:import MDProgressBar kivymd.progressbar.MDProgressBar
+#:import MDSpinner kivymd.spinner.MDSpinner
+<SvgWidget>:
+    do_rotation: False
+<Loadingtela@FloatLayout>:
+    id:loadb
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4c')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    Image:
+        source: 'recursos/PlanodeFundo.png'
+        size_hint_y: .30
+        pos_hint: {'center_x': .5, 'center_y': .68}
+
+    Label:
+        color: 1, 1, 1, 1
+        pos_hint: {'center_x': .5, 'center_y': .4}
+        font_name: 'Montserrat-Light_0.otf'
+        font_size: 0.004 * root.height + root.width  /35
+        text: 'Aguarde enquanto encontramos as informações sobre o seu perfil'
+        text_size: self.width * 2 /3, None
+        halign: 'center'
+        valign: 'center'
+        bold: True
+    MDSpinner:
+        color: utils.get_color_from_hex('#fff')
+        id: spinner
+        size_hint: None, None
+        size: 0.08*root.height, 0.08 * root.height
+        pos_hint: {'center_x': 0.5, 'center_y': 0.28}
+        active: True
+
+

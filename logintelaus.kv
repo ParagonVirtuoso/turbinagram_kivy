@@ -1,0 +1,86 @@
+#encoding: -*- utf-8 -*-
+#:kivy 1.0
+<Logintelaus@FloatLayout>:
+    canvas.before: 
+        Color:
+            rgba:210,47,76,74
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    LogoMeioTurbinaGram:
+        source: 'recursos/LOGO_TURBINA_GRAMLicone.png'
+        size_hint_y: .14
+        pos_hint: {'center_x': .5, 'center_y': .66}
+    InputLogin:
+        id:userl
+        hint_text: 'usuário do instagram'
+        pos_hint: {'center_x': .5, 'center_y': .54}
+        password: False
+        on_text: root.on_text(self)
+    InputLogin:
+        id:passl
+        on_text: root.on_text(self)
+
+    BotaoPlano:
+        text: 'Esqueceu sua senha?'
+        size_hint_y: .05
+        size_hint_x: .35
+        font_size: 0.4*self.height
+        pos_hint: {'center_x': .65, 'center_y': .3}
+        on_press: root.recuperar()
+
+    BotaoPlano:
+        text: 'Informação do plano'
+        font_size: 0.5*self.height
+        size_hint_y: .04
+        pos_hint: {'center_x': .5, 'center_y': .25}
+        on_release: app.root.current = 'devtela'
+
+    BotaoLoginInsta:
+        id:entral
+        font_name: 'Montserrat-Bold_0.otf'
+        font_size: 0.5*self.height
+        text: 'ENTRAR'
+        size_hint: .55, .06
+        pos_hint: {'center_x': .5, 'center_y': .35}
+        #on_touch_down: app.root.current = 'loading'
+        on_press: root.logar()
+
+        #on_press: root.logar()
+    #BotaoLoginInsta:
+        #size_hint: .70, .08
+        #Image:
+            #source: 'recursos/instagram-new.png'
+            #allow_stretch: True
+    #BotIm:
+       # size_hint: .70, .08
+    ActionBar:
+        pos_hint: {'top' : 1}
+        background_normal: ''
+        background_down: ''
+        background_color: 255,255,255,0.95
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                id:Backb
+                app_icon: 'back.png'
+                color: 0, 0, 0, 1
+                with_previous: False
+                on_release: app.root.current = 'menu'
+    LogoTopo:
+    DireitosLabel:
+    Label:
+        color: 0, 0, 0, 1
+        font_name: 'Montserrat-Light_0.otf'
+        text: 'Permanecer Logado?'
+        pos_hint: {'center_x': .5, 'center_y': .15}
+        halign: 'right'
+    CheckBox:
+        id:permcheck
+        halign: 'left'
+        size_hint: .01,None
+        pos_hint: {'center_x':.8 , 'center_y': .15}
+        color: 255,0,0,1
+        active: True
+        on_active: root.checkbox_clicked(self, self.active)

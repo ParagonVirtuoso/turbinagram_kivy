@@ -1,0 +1,326 @@
+#encoding: -*- utf-8 -*-
+#:kivy 1.0
+#:include widgets.kv
+#:import utils kivy.utils
+<HomeTela@BoxLayout>:
+    orientation:'vertical'
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:               #definimos a ActionBAr
+        orientation:'horizontal'
+        id: actBar
+        size_hint_y:.06
+        pos_hint: {'center_x': .5,'top':1.}
+        background_image: ''
+        canvas.before:
+            Color:
+                rgba: 210,47,76,74
+            Rectangle:
+                size: root.width, root.height / 1.6
+                pos: root.x, root.y / 2
+        BoxLayout:
+            size: .4, 1
+            orientation:'horizontal'
+            canvas.before:
+                Color:
+                    rgba: 0,0,0,.12
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            BotTest:
+            FloatLayout:
+                size_hint_x: .3
+                Image:
+                    source: 'recursos/sup2.png'
+                    size_hint_x:.55
+                    pos_hint: {'center_x': .2 , 'center_y': .5}
+                    allow_stretch: True
+                    mipmap: True
+            FloatLayout:
+                size_hint_x: .3
+                Image:
+                    source: 'recursos/sup2.png'
+                    size_hint_x:.55
+                    pos_hint: {'center_x': .2 , 'center_y': .5}
+                    allow_stretch: True
+                    mipmap: True
+
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: utils.get_color_from_hex('#FFF')
+            RoundedRectangle:
+                size: self.width /1.2, self.height /1.25
+                pos: self.x + self.width /12   , self.y + self.height /10.5
+                radius: [15,]
+        FuncBot4:
+            pos_hint: {'center_x': .5, 'center_y': .168}
+        FuncBot3:
+            pos_hint: {'center_x': .5, 'center_y': .32}
+        FuncBot2:
+            pos_hint: {'center_x': .5, 'center_y': .47}
+        FuncBot1:
+            pos_hint: {'center_x': .5, 'center_y': .62}
+
+
+
+<BotTest@FloatLayout+Button>:
+    background_color: 0,0,0,0
+    pos_hint: {'center_x': .5, 'y': .47}
+    size_hint: .35, .08
+    Image:
+        source: 'recursos/bars.png'
+        #size: self.width, self.height
+
+        pos_hint: {'center_x': .12, 'center_y': .50}
+        size_hint_x: .2
+        size_hint_y: None
+        allow_stretch: True
+        #color: utils.get_color_from_hex('#d22f4b')
+        canvas.before:
+            Color:
+                rgba: 255,255,255,0
+            Rectangle:
+                size: self.width, self.height /2.5
+                pos: self.x -self.width / 8 , self.y + self.height /3.3
+    Label:
+        color: 1, 1, 1, 1
+        pos_hint: {'center_x': .28, 'center_y': .50}
+        font_name: 'Montserrat-Light_0.otf'
+        font_size: 0.9 * root.height + (root.width /8)  /3
+        #valign: 'middle'
+        text: 'Painel'
+        #text_size: self.parent.width, self.parent.height
+        bold: True
+<FuncBot4@BoxLayout+Button>
+    size_hint: .85, .13
+    background_color: 0,0,0,0
+    canvas:
+        Color:
+            rgba: utils.get_color_from_hex('#f2f2f2') if self.state=='normal' else utils.get_color_from_hex('#d6d6d6')
+        Line:
+            width: 3.2
+            rounded_rectangle: self.x, self.y, self.width, self.height, 7,
+
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else utils.get_color_from_hex('#e58596')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [7,]
+    canvas.after:
+        Color:
+            rgba: utils.get_color_from_hex('#eaeaea') if self.state=='normal' else utils.get_color_from_hex('#d6d6d6')
+        Line:
+            width: 1.5
+            rounded_rectangle: self.x, self.y, self.width, self.height, 7,
+
+    Image:
+        keep_data: True
+        source: 'recursos/agend5.png'
+        size_hint_x: .27
+
+    FloatLayout:
+        size:self.size
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size:self.size
+                pos: self.pos
+        Label:
+            text: 'Agendamento'
+            font_name: 'Montserrat-Bold_0.otf'
+            color: utils.get_color_from_hex('#2a2a2a')
+            halign: 'left'
+            valign: 'middle'
+            pos_hint: {'x': .03, 'center_y': .70}
+            font_size: 0.150*self.height
+            text_size: self.size
+        Label:
+            text: 'Caso tenha materiais que queria, agendar o uma publicação envia para a gente, e realizações isso;'
+            multiline: True
+            halign: 'left'
+            valign: 'bottom'
+            pos_hint: {'x': .03, 'center_y': .80}
+            font_name: 'Montserrat-Bold_0.otf'
+            color: utils.get_color_from_hex('#2a2a2a')
+            font_size: 0.110*self.height
+            text_size: self.size
+
+<FuncBot3@BoxLayout+Button>
+    size_hint: .85, .13
+    background_color: 0,0,0,0
+    canvas:
+        Color:
+            rgba: utils.get_color_from_hex('#f2f2f2') if self.state=='normal' else utils.get_color_from_hex('#d6d6d6')
+        Line:
+            width: 3.2
+            rounded_rectangle: self.x, self.y, self.width, self.height, 7,
+
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else utils.get_color_from_hex('#e58596')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [7,]
+    canvas.after:
+        Color:
+            rgba: utils.get_color_from_hex('#eaeaea') if self.state=='normal' else utils.get_color_from_hex('#d6d6d6')
+        Line:
+            width: 1.5
+            rounded_rectangle: self.x, self.y, self.width, self.height, 7,
+
+    Image:
+        keep_data: True
+        source: 'recursos/perfil.png'
+        size_hint_x: .27
+
+    FloatLayout:
+        size:self.size
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size:self.size
+                pos: self.pos
+        Label:
+            text: 'Perfis'
+            font_name: 'Montserrat-Bold_0.otf'
+            color: utils.get_color_from_hex('#2a2a2a')
+            halign: 'left'
+            valign: 'middle'
+            pos_hint: {'x': .03, 'center_y': .70}
+            font_size: 0.150*self.height
+            text_size: self.size
+        Label:
+            text: 'Perfis de concorrentes, marcas que trabalham com você por que o publico que vai até eles pode vim até você;'
+            multiline: True
+            halign: 'left'
+            valign: 'bottom'
+            pos_hint: {'x': .03, 'center_y': .80}
+            font_name: 'Montserrat-Bold_0.otf'
+            color: utils.get_color_from_hex('#2a2a2a')
+            font_size: 0.110*self.height
+            text_size: self.size
+
+<FuncBot2@BoxLayout+Button>
+    size_hint: .85, .13
+    background_color: 0,0,0,0
+    canvas:
+        Color:
+            rgba: utils.get_color_from_hex('#f2f2f2') if self.state=='normal' else utils.get_color_from_hex('#d6d6d6')
+        Line:
+            width: 3.2
+            rounded_rectangle: self.x, self.y, self.width, self.height, 7,
+
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else utils.get_color_from_hex('#e58596')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [7,]
+    canvas.after:
+        Color:
+            rgba: utils.get_color_from_hex('#eaeaea') if self.state=='normal' else utils.get_color_from_hex('#d6d6d6')
+        Line:
+            width: 1.5
+            rounded_rectangle: self.x, self.y, self.width, self.height, 7,
+
+    Image:
+        keep_data: True
+        source: 'recursos/hash.png'
+        size_hint_x: .27
+
+    FloatLayout:
+        size:self.size
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size:self.size
+                pos: self.pos
+        Label:
+            text: '#Hashtag'
+            font_name: 'Montserrat-Bold_0.otf'
+            color: utils.get_color_from_hex('#2a2a2a')
+            halign: 'left'
+            valign: 'middle'
+            pos_hint: {'x': .03, 'center_y': .70}
+            font_size: 0.150*self.height
+            text_size: self.size
+        Label:
+            text: 'Pense nas melhores hashtag, isso será de muita importancia pois irar te mostrar para que não te conhece;'
+            multiline: True
+            halign: 'left'
+            valign: 'bottom'
+            pos_hint: {'x': .03, 'center_y': .80}
+            font_name: 'Montserrat-Bold_0.otf'
+            color: utils.get_color_from_hex('#2a2a2a')
+            font_size: 0.110*self.height
+            text_size: self.size
+
+<FuncBot1@BoxLayout+Button>
+    size_hint: .85, .13
+    background_color: 0,0,0,0
+    canvas:
+        Color:
+            rgba: utils.get_color_from_hex('#f2f2f2') if self.state=='normal' else utils.get_color_from_hex('#d6d6d6')
+        Line:
+            width: 3.2
+            rounded_rectangle: self.x, self.y, self.width, self.height, 7,
+
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else utils.get_color_from_hex('#e58596')
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [7,]
+    canvas.after:
+        Color:
+            rgba: utils.get_color_from_hex('#eaeaea') if self.state=='normal' else utils.get_color_from_hex('#d6d6d6')
+        Line:
+            width: 1.5
+            rounded_rectangle: self.x, self.y, self.width, self.height, 7,
+
+    Image:
+        keep_data: True
+        source: 'recursos/loc.png'
+        size_hint_x: .27
+
+    FloatLayout:
+        size:self.size
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            Rectangle:
+                size:self.size
+                pos: self.pos
+        Label:
+            text: 'Localizações'
+            font_name: 'Montserrat-Bold_0.otf'
+            color: utils.get_color_from_hex('#2a2a2a')
+            halign: 'left'
+            valign: 'middle'
+            pos_hint: {'x': .03, 'center_y': .70}
+            font_size: 0.150*self.height
+            text_size: self.size
+        Label:
+            text: 'Liste as melhores localizações, aonde você quer focar as atividades no seu perfil'
+            multiline: True
+            halign: 'left'
+            valign: 'bottom'
+            pos_hint: {'x': .03, 'center_y': .80}
+            font_name: 'Montserrat-Bold_0.otf'
+            color: utils.get_color_from_hex('#2a2a2a')
+            font_size: 0.110*self.height
+            text_size: self.size
+

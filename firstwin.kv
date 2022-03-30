@@ -1,0 +1,19 @@
+#encoding: -*- utf-8 -*-
+#:kivy 1.0
+<FirstWin@FloatLayout>:
+    canvas.before: 
+        Color:
+            rgba:210,47,76,74
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    LogoMeioTurbinaGram:
+    LogoTopo:
+    BotaoPlano:
+        size_hint_y: .04
+        on_release: app.root.current = 'logtelaus'
+    BotaoConhecePlano:
+        font_size: 0.4*self.height
+        size_hint: .60, .07
+        on_release: app.root.current = 'home'
+    DireitosLabel:

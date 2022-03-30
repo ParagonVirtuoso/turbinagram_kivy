@@ -1,0 +1,249 @@
+#:kivy 1.0
+# coding: utf-8
+#encoding: -*- utf-8 -*-
+<LogoMeioTurbinaGram@Image>:
+    source: 'Logo centro.png'
+    size_hint_y: .3 
+    pos_hint: {'x': .5 - self.size_hint_x /2, 'y': .5 - self.size_hint_y / 4} 
+    allow_stretch:True  
+
+<LogoTopo@Image>:
+    source: 'LOGO_FINAL.png'
+    allow_stretch: True
+    size_hint_y: .10
+    size_hint_x: .12
+    pos_hint: {'x': .5 - self.size_hint_x /2, 'y': .88}
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b')
+        RoundedRectangle:
+            pos: self.x - self.width / 4, self.y - self.height /6
+            size: self.width + self.width / 2, self.height + self.height / 2
+            radius: [10,]
+<BotaoPlano@Button>:
+    #background_normal: ''
+    #background_down: ''
+    background_color: 0,0,0,0
+    text: 'Já conhece o plano? faça login '
+    font_name: 'Montserrat-Light_0.otf'
+    font_size: 0.5*self.height
+    color: 0, 0, 0, 1
+    pos_hint: {'center_x': .5, 'center_y': .23}
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else (255,0,0,1)
+
+<BotaoConhecePlano@Button>:
+
+    background_color: 255,255,255,0.95
+    background_normal: ''
+    background_down: ''
+    color: 0, 0, 0, 1
+    font_name: 'Montserrat-Light_0.otf'
+    text: 'Conheça, nosso plano!'
+    bold: True
+    pos_hint: {'x': .5 - self.size_hint_x /2, 'y': .26}
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else (255,0,0,1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [15,]
+    canvas.after:              
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else (255,0,0,1)
+        Line:
+            width: 1.
+            rounded_rectangle: self.x, self.y, self.width, self.height, 6,
+
+<DireitosLabel@Label>:
+    color: 0, 0, 0, 1
+    text: 'Todos os direitos foram reservados.'
+    pos_hint: {'center_x': .5, 'center_y': .07}
+    font_name: 'Montserrat-Light_0.otf'
+    font_size: 0.016*self.height
+
+<BotIm@Image>:
+    source: 'recursos/instagram-new.png'
+    allow_stretch: True
+    background_normal: ''
+    background_down: ''
+    pos_hint: {'center_x': .20, 'y': .47}
+    canvas.before:
+        Color:
+            #rgb: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else (255,0,0,1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [6,]
+
+<BotaoLoginInsta@Button>:
+    background_color: 255,255,255,0
+    background_normal: ''
+    background_down: ''
+    color: 1, 1, 1, 1
+    font_name: 'Montserrat-Light_0.otf'
+    font_size: '8pt'
+    text: 'Faça login utilizando o instagram'
+    bold: True
+    pos_hint: {'x': .55 - self.size_hint_x /2, 'y': .47}
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else (255,0,0,1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [6,]
+    canvas.after:              
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else (255,0,0,1)
+        Line:
+            width: 1.
+            rounded_rectangle: self.x, self.y, self.width, self.height, 6,
+<InputLogin@TextInput>:
+    background_normal: ''
+    font_name: 'Montserrat-Light_0.otf'
+    size_hint: .65, .05
+    pos_hint: {'center_x': .5, 'center_y': .44}
+    multiline: False
+    write_tab:  False
+    allow_copy: False
+    hint_text: 'senha'
+    hint_text_color: utils.get_color_from_hex('#d3cccf')
+    #cursor_color: utils.get_color_from_hex('#d22f4c')
+    password: True
+    halign: 'center'
+    valign: 'middle'
+    font_size: 0.5*self.height
+    canvas.after:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4c')
+        Line:
+            width: 1.
+            rectangle: self.x, self.y, self.width, 0,
+        Line:
+            width: 1.
+
+
+            rectangle: self.x, self.y, 0, self.height,
+
+<ButTest@FloatLayout+Button>:
+    background_color: 0,0,0,0
+    pos_hint: {'center_x': .5, 'y': .47}
+    size_hint: .75, .08
+    orientation: 'horizontal'
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#d22f4b') if self.state=='normal' else (255,0,0,1)
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [4,]
+
+    Image:
+        source: 'recursos/instagram-new.png'
+        #size: self.width, self.height
+        pos_hint: {'center_x': .12, 'center_y': .50}
+        size_hint_x: .17
+        allow_stretch: True
+
+    Label:
+        color: 1, 1, 1, 1
+        pos_hint: {'center_x': .6, 'center_y': .50}
+        font_name: 'Montserrat-Bold_0.otf'
+        font_size: 0.004 * root.height + root.width  /22
+        #valign: 'middle'
+        text: 'Faça login utilizando o instagram'
+        #text_size: self.parent.width, self.parent.height
+        bold: True
+<ActionTurb@FloatLayout>:
+    #background_color: 255,0,0
+    ActionBar:
+        background_normal: ''
+        background_down: ''
+        background_color: 0, 1, 0, 1
+        pos_hint: {'top':1}
+        #size_hint_x: root.width
+        #size_hint_y: .07
+        canvas.before:
+            Color:
+                rgba: utils.get_color_from_hex('#d22f4b')
+            Rectangle:
+                size: root.width , root.height /2.5
+                pos: root.x, root.y + root.height /1.6
+        ActionView:
+            #background_color: 255,0,0
+            use_separator: True
+            #pos_hint: {'center_x': .5, 'center_y': 0.5}
+            ActionPrevious:
+                #background_color: 255,0,0
+                title:'Tarefas'
+                with_previous: False
+                on_release: app.root.current = 'menu'
+            ActionOverflow:
+            ActionToggleButton:
+                text: 'Sair'
+                pos_hint: {'right': 1, 'center_y': .5}
+            ActionButton:
+                #background_color: 255,0,0
+                #color: 255,0,0
+                #pos_hint_x: None
+                #pos_hint_y: None
+                text: 'Sair2'
+                size: self.texture_size
+                pos_hint: {'x': 0, 'center_y': .5}
+                on_release: app.stop()
+
+<Acbarbotao@BoxLayout+ActionItem>:
+    #size_hint: None, None
+    #background_normal:''
+    #background_down: ''
+    orientation:'horizontal'
+    #background_color: (0,0,0,0) if self.state=='normal' else (255,0,0,0.2)
+    size_hint_x: .2
+    size_hint_y: 1.
+    Image:
+        #background_color: 255,0,0,0.015
+        color: 255,0,0,1
+        source: 'recursos/parc.png'
+        #size: self.width,self.height
+        #size: self.texture_size
+        allow_stretch: True
+    Label:
+        text: 'Parceiros'
+        #font_size: 0.204 * (root.height + root.width / 5)
+        #valign: 'middle'
+
+<Acbarbotao2@FloatLayout+Button>:
+    #size_hint: None, None
+    background_color: 0,0,0,0
+    background_normal:''
+    background_down: ''
+    background_color: (0,0,0,0) if self.state=='normal' else (255,0,0,0.2)
+    size_hint: .3, .1
+    Image:
+        size_hint_x: None
+        size_hint_y: None
+        size: self.texture_size
+        pos_hint: {'center_x':.0 + (self.size_hint_x /2), 'center_y': .5}
+        source: 'recursos/sup.png'
+        size_hint_x: .1 + (self.height /8)
+        #size: self.width /5,self.height
+
+        allow_stretch: True
+    Label:
+        text: 'Suporte'
+        valign: 'middle'
+        font_size: 0.004 * root.height + root.width  /9
+        valign: 'middle'
+        size:self.texture_size
+
+
+
+
+
+
+
+
+

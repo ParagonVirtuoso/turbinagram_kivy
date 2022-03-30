@@ -1,0 +1,69 @@
+#:kivy 1.0
+#:import utils kivy.utils
+#:include firstwin.kv
+#:include devtela.kv
+#:include logintela.kv
+#:include loading.kv
+#:include logintelaus.kv
+#:include home.kv
+#:include widgets.kv
+#encoding: -*- utf-8 -*-
+
+<Gerenciador>:
+    id:gerec
+
+    logintelaus: logintelaus
+    menu: menu
+    logtela: logtela
+    devtela: devtela
+    loading: loading
+    home: home
+
+    Menu:
+        id: menu
+        name:'menu'
+        mananger: gerec
+
+    Home:
+        id: home
+        name:'home'
+        mananger: gerec
+
+    Logintela:
+        id: logtela
+        name: 'logtela'
+        mananger: gerec
+
+    Devtela:
+        id: devtela
+        name: 'devtela'
+        mananger: gerec
+
+    Loading:
+        id: loading
+        name: 'loading'
+        mananger: gerec
+
+    Logintelaus:
+        id: logintelaus
+        name: 'logtelaus'
+        mananger: gerec
+
+<Logintelaus>:
+    logintelaus:
+
+<Home>:
+    HomeTela:
+
+<Dev>:
+    id:devtela
+    DevTela:
+        id:devtela
+<Menu>:  
+    FirstWin:
+<Logtela>:
+    Logintela:
+<Loading>:
+    id:zavod
+    Loadingtela:
+        id:loadb

@@ -1,0 +1,37 @@
+#encoding: -*- utf-8 -*-
+#:kivy 1.0
+<SvgWidget>:
+    do_rotation: False
+    pos_hint: {'center_x': .5, 'center_y': .5}
+
+<DevTela@FloatLayout>:
+    canvas.before: 
+        Color:
+            rgba:210,47,76,74
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    LogoMeioTurbinaGram:
+
+    ActionBar:
+        pos_hint: {'top' : 1}
+        background_normal: ''
+        background_down: ''
+        background_color: 255,255,255,0.95
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                id:Backb
+                app_icon: 'back.png'
+                color: 0, 0, 0, 1
+                with_previous: False
+                on_release: app.root.current = 'menu'
+    LogoTopo:
+    Label:
+        id:devin
+        color: 0, 0, 0, 1
+        text: 'EM DESENVOLVIMENTO'
+        pos_hint: {'center_x': .5, 'center_y': .3}
+        font_name: 'Montserrat-Light_0.otf'
+        font_size: '18pt'
+    DireitosLabel:
